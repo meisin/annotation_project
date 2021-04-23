@@ -1,0 +1,51 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<br /><br />
+  <h3><strong></strong>{{ sentences.text }}</h3> <!-- author detail link not yet defined -->
+  
+  
+
+	<!--<p>Validation : {{ validation.sent_id }}</p>-->
+  <div style="margin-left:20px;margin-top:20px">
+	
+    <h4>Events </h4>
+	{% if sentences.events_set.all %}
+	<table border="1" width="100%">
+		<tr><th>No. </th><th>Event Type</th><th>Trigger Word(s)</th><th>Polarity</th><th>Polarity Cue</th><th>Modality</th><th>Modality Cue</th></tr>
+		    {% for event in sentences.events_set.all %}
+		<tr><td>{{ forloop.counter }}</td><td>{{ event.event_type}}</td><td>{{ event.trigger}}</td><td>{{ event.polarity}}</td><td>{{event.polarity_cue}}</td><td>{{ event.modality}}</td><td>{{event.modality_cue}}</td></tr>
+		{% endfor %}
+	</table>
+
+    <br />
+	{% else %}
+    <p>There are events identified for this sentence.</p>
+	{% endif %} 
+	
+	What you need to check for:
+	<ul>
+		<li>Do you agree with the events identified? Are there any events not captured above?</li>
+		<li>Do you agree with the list of trigger words?</li>
+		<li>Are events' Polarity and Modality correctly classfied?</li>
+	</ul>
+	<hr />
+	
+	<br />
+	
+  <form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+	<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button onclick="{% url 'unvalidated_sentences' %}">Cancel</button>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="submit" value="Submit">
+  </form>
+  </div>
+{% endblock %}
+
+<!-- <a href="{% url 'author-detail' book.author.pk %}">-->
+

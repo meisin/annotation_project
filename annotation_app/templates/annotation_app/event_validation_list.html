@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+	<br /><br />
+  <h1>List of Events</h1>
+  {% if events_list %}
+  <table border ="1" style="width:90%">
+  <tr>
+    <th>Event ID</th>
+    <th>Validation Completed?</th>
+  </tr>
+  {% for event in events_list %}
+  <tr>
+  <td><a href="{% url 'event-detail' event.event_id_id %}">{{ event.event_id_id }}</a></td>
+  <td>
+  {% if event.validated == 0 %}
+		No
+  {% else %}
+        Yes
+  {% endif %}
+		
+  </td>
+  </tr>
+    {% endfor %}
+  
+  </table>
+  {% else %}
+    <p>There are no events assigned to you / your profile</p>
+  {% endif %} 
+{% endblock %}
+
+
+
+
+		

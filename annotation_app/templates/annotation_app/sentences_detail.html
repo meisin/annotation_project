@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <p>Sentence: {{ sentences.sent_id }}</p>
+
+  <h3><strong>Text:</strong>{{ sentences.text }}</h3> <!-- author detail link not yet defined -->
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Events</h4>
+
+    {% for event in sentences.events_set.all %}
+	<!-- sentences.events_set.all -->
+      <hr>
+	  <ul>
+		<li>Id:{{ event.event_id }}</li>
+		<li>{{ event.event_type }}</li>
+		<li>Arguments </li>
+
+	  </ul>	  
+    {% endfor %}
+
+  </div>
+{% endblock %}
+
+<!-- <a href="{% url 'author-detail' book.author.pk %}">-->
+

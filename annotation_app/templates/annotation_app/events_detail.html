@@ -1,0 +1,54 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+   <br />
+   <br />
+     <h3><strong></strong>{{ sentences.text }}</h3>
+   <ul>
+	<li>Event type: {{ events.event_type }}</li>
+	<li>Trigger Word(s): {{ events.trigger }}</li>
+	<li>Polarity: {{ events.polarity }}</li>
+	<li>Modality: {{ events.modality }}</li>
+   </ul> 
+
+
+  <div style="margin-left:20px;margin-top:20px">
+  <hr />
+    <h4>Arguments</h4>
+	<table border="1" width = "80%">
+		<tr>
+		<th>No</th><th>Argument</th><th>Argument Role (Entity Type) </th></tr>
+		    {% for arg in events.event_arguments_set.all %}
+		<tr>
+		<td>{{ forloop.counter }}</td>
+		<td>{{ arg.arg_text }}</td>
+		<td>{{ arg.arg_role }}({{ arg.entity_type}})</td>
+	  </tr>  
+    {% endfor %}
+
+	</table>
+	
+	<br />
+	
+	What you need to check for:
+	<ul>
+		<li>Do you agree with the arguments identified? Are there any arguments not captured above?</li>
+		<li>Do you agree with the arguments' roles?</li>
+	</ul>
+	<hr />
+	<br />
+	  <form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button onclick="{% url 'unvalidated_events' %}">Cancel</button>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="submit" value="Submit">
+  </form>
+	  </div>
+{% endblock %}
+
+<!-- <a href="{% url 'author-detail' book.author.pk %}">-->
+

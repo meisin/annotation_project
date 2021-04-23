@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>List of Sentences   asdfasdf</h1>
+
+  
+  {% if sentences_list %}
+  <table style="width:100%">
+  <tr>
+    <th>Sentence ID</th>
+    <th>Validation Completed?</th>
+  </tr>
+  {% for sent in sentences_list %}
+  <tr>
+  <td><a href="{% url 'new-sentence-detail' sent.sent_id %}">{{ sent.sent_id }}</a></td>
+  <td>{{sent.validated}} </td>
+  </tr>
+    {% endfor %}
+  
+  </table>
+  
+  {% else %}
+    <p>There are no sentences assigned to you / your profile.</p>
+  {% endif %} 
+{% endblock %}

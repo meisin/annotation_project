@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Annotation Project</h1>
+  <p><em>Welcome to the Annotation Project</em>!</p>
+  
+  <p>In total, 100 commodity news articles were annotated, where the following event types along with their respective event arguments were identified and tagged:</p>
+  <ol>
+	<li>Geo-political events</li>
+	<li>Macro-economic events</li>
+	<li>Commodity price movements</li>
+  </ol>
+	<p><strong>Your task </strong>is to validate the annotation to ensure they are complete and error-free. 
+	<hr />
+  <p>Sentences:</p>
+  <ul>
+    <li>Total sentences: {{ num_sent }}</li>
+    <li><strong>Sentences not validated:</strong> {{ num_sent_not_validated }}</li>
+  </ul>
+    <p>Events:</p>
+  <ul>
+    <li>Total events: {{ num_event }}</li>
+    <li><strong>Events not validated:</strong> {{ num_event_not_validated }}</li>
+  </ul>
+{% endblock %}

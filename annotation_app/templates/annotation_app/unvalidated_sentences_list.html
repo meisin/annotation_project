@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>List of Unvalidated Sentences</h1>
+  {% if unvalidated_list %}
+  <ul>
+    {% for sent in unvalidated_list %}
+      <li>
+		<a href="{% url 'new-sentence-detail' sent.sent_id_id %}">{{ sent.sent_id_id }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no sentences left to validate</p>
+  {% endif %} 
+{% endblock %}

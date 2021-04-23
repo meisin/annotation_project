@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+	<br /><br />
+  <h1>List of Sentences </h1>
+
+  
+  {% if sentences_list %}
+  <table border = "1" style="width:90%">
+  <tr>
+    <th>Sentence ID</th>
+    <th>Validation Completed?</th>
+  </tr>
+  {% for sent in sentences_list %}
+  <tr>
+  <td><a href="{% url 'new-sentence-detail' sent.sent_id_id %}">{{ sent.sent_id_id }}</a></td>
+  <td>
+  {% if sent.validated == 0 %}
+		No
+  {% else %}
+        Yes
+  {% endif %}
+		
+  </td>
+  </tr>
+    {% endfor %}
+  
+  </table>
+  
+  {% else %}
+    <p>There are no sentences assigned to you / your profile.</p>
+  {% endif %} 
+{% endblock %}

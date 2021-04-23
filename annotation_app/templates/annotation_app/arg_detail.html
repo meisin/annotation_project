@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <p>testing {{ event.polarity }}</p>
+  <p>sentence {{ event.event_id }} </p>
+  <p>Argument: {{ arg.arg_text }}</p>
+
+  <h3><strong>Text:</strong>{{ arg.entity_type }}</h3>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Events</h4>
+
+  </div>
+{% endblock %}
+
+<!-- <a href="{% url 'author-detail' book.author.pk %}">-->
+
