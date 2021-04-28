@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('events_desc/', views.EventsDescription, name='events_description'),
+    path('events_schemas/', views.EventsSchemas, name='events_schemas'),
     path('glossary/', views.Glossary, name='glossary'),
     path('sentences/', views.Sent_validationListView.as_view(), name='sentences'),                  ## Class view
     path('sentence/<str:pk>', views.SentenceDetailView.as_view(), name='sentence-detail'),   ## Class view   ##### Not needed anymore

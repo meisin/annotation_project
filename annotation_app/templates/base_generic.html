@@ -15,14 +15,19 @@
       <div class="col-sm-2">
       {% block sidebar %}
         <ul class="sidebar-nav">
+		{% if user.is_authenticated %}
 		   <li>You are logged in as</li>
 		  <li><b>{{ user.get_username }}</b></li>
+		{% else %}
+		  <li>You need to <a href="{% url 'login'%}?next={{request.path}}">login</a> first to continue</li>
+		{% endif %}
 		  <hr />
           <li><a href="{% url 'index' %}">Home</a></li>
 		  <hr />
 		  <li><u><b>Info</b></u></li>
-		  <li><a href="{% url 'events_description' %}" target=”_blank">Event Description</a></li>
-		  <li><a href="{% url 'glossary' %}" target="_blank">What is a...</a></li>
+		  <li><a href="{% url 'events_description' %}" target=”_blank">Event Types</a></li>
+		  <li><a href="{% url 'events_schemas' %}" target=”_blank">Event Arguments</a></li>
+		  <li><a href="{% url 'glossary' %}" target="_blank">Polarity and Modality</a></li>
 		  <li><a href="{% url 'sentences' %}">All Sentences</a></li>
 		  <li><a href="{% url 'events' %}">All Events</a></li>
 		  <hr />

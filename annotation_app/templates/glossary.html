@@ -4,14 +4,24 @@
     <title>Glossary</title>
 </head>
 <body>
-	<h2>What is a..... </h2>
-	<table border ="1" width="80%" align="center">
-	<tr><th style="width: 25%;">Term</th><th>Description</th></tr>
-	<tr><td>Trigger Word(s)</td><td>adfasf</td></tr>
-	<tr><td><b>Polarity</b> of an event</td><td>adfasf</td></tr>
-	<tr><td><b>Modality</b> of an event</td><td>adfasf</td></tr>
+	<h2>Event Modality and Polarity </h2>
+	
+	<p>Event extraction (event triggers and event arguments) is simply insufficient to represent the events correctly. In order to have an accurate interpretation of events, it is important to distinguish actual events from speculated/forecasted/anticipated events under the <b>Modality</b> attribute. It is also important to separate positive events from negated ones under the <b>Polarity </b> attribute.
+	
+	<ol>
+	<li>Modality (ASSERTED or OTHER) - <br />An event is annotated as <b>ASSERTED</b> when the author or speaker makes reference to it as though it was a real occurrence. All other Events, including believed events, hypothetical events, commanded / requested event, speculated / forecasted event are annotated as <b>OTHER</b>. <br />
+	<ol>
+		<li><b>Modality ASSERTED</b>: Washington issued a statement confirming US's <b>sanctions</b> on Iran. </li>
+		<li><b>Modality OTHER</b>: The market <u>expects</u> US to <b>sanction</b> Iran. </li><br />
+	</ol>
 		
-	</table>
+	<li>Polarity (POSITIVE or NEGATIVE) - <br />An event is <b>NEGATIVE</b> when it is explicitly indicated that the Event did not occur. The non-occurrence of the Event must be explicitly and intentionally communicated. All other Events are <b>POSITIVE</b>. 
+
+	<ol>
+		<li><b>Polarity POSITIVE: </b> OPEC countries <b>cut</b> oil supplies. </li>
+		<li><b>Polarity NEGATIVE: </b> OPEC countries <u>refused</u> <b>cut</b> oil supplies. </li>
+	</ol></li>
+	</ol>
 
 </body>
 </html>

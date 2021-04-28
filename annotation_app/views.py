@@ -32,6 +32,10 @@ def index(request):
 def EventsDescription(request):
     return render(request, 'events_description.html')
 
+def EventsSchemas(request):
+    return render(request, 'event_schemas.html')
+
+
 def Glossary(request):
     return render(request, 'glossary.html')
 
