@@ -15,12 +15,11 @@
 	{% if not user.is_authenticated %}
 		  <p>Please <a href="{% url 'login'%}?next={{request.path}}">login</a> first to get an accurate count of number of unvalidated sentences and unvalidated events.</a></li>
 	{% endif %}
-  <!--<p>Sentences:</p>
+  <p>Sentences:</p>
   <ul>
     <li>Total sentences: {{ num_sent }}</li>
     <li><strong>Sentences not validated:</strong> {{ num_sent_not_validated }}</li>
-  </ul>-->
-  
+  </ul>
     <p>Events:</p>
   <ul>
     <li>Total events: {{ num_event }}</li>
