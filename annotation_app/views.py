@@ -16,7 +16,7 @@ def index(request):
     # Generate counts of sentences
     num_sent = Sentences.objects.count()
     num_sent_not_validated = Sent_validation.objects.filter(validated = 0).filter(annotator_id = request.user).count()
-    num_event = Events.objects.count()
+    num_event = Events.objects.filter(annotator_id = request.user).count()
     num_event_not_validated = Event_validation.objects.filter(validated = 0).filter(annotator_id = request.user).count()
     
     context = {
